@@ -1,0 +1,46 @@
+@value height:  50px;
+@value width:   100px;
+
+@value box-off: #ffffff;
+@value box-on:  #ecf0fd;
+@value switch:  #c1cffa;
+
+.toggle {
+    position: relative;
+    height: height;
+    width: width;
+}
+
+.toggle__box {
+    width: width;
+    height: height;
+    border: solid 1px box-on;
+    border-radius: 5px;
+}
+
+.toggle__box_on {
+    composes: toggle__box;
+    background-color: box-on;
+}
+
+.toggle__box_off {
+    composes: toggle__box;
+    background-color: box-off;
+}
+
+.toggle__switch {
+    width: 50px;
+    height: 50px;
+    background-color: switch;
+    border-radius: 5px;
+}
+
+.toggle__switch_off {
+    composes: toggle__switch;
+    float: left;
+}
+
+.toggle__switch_on {
+    composes: toggle__switch;
+    float: right;
+}
