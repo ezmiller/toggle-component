@@ -4,6 +4,8 @@
 @value box-off: #ffffff;
 @value box-on:  #ecf0fd;
 @value switch:  #c1cffa;
+@value border:  #e0e7fc;
+@value border-radius: 30px;
 
 .toggle {
     position: relative;
@@ -14,8 +16,8 @@
 .toggle__box {
     width: width;
     height: height;
-    border: solid 1px box-on;
-    border-radius: 5px;
+    border: solid 1px border;
+    border-radius: border-radius;
 }
 
 .toggle__box_on {
@@ -32,15 +34,15 @@
     width: 50px;
     height: 50px;
     background-color: switch;
-    border-radius: 5px;
+    border-radius: border-radius;
+    transition: all .2s ease;
 }
 
 .toggle__switch_off {
     composes: toggle__switch;
-    float: left;
 }
 
 .toggle__switch_on {
     composes: toggle__switch;
-    float: right;
+    transform: translateX(50px);
 }
