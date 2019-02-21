@@ -1,0 +1,70 @@
+@value height:  50px;
+@value width:   100px;
+
+@value box-off: #ffffff;
+@value box-on:  #ecf0fd;
+@value switch:  #c1cffa;
+@value border:  #e0e7fc;
+@value border-radius: 30px;
+
+.toggle {
+  position: relative;
+  height: height;
+  width: width;
+}
+
+.toggle__box {
+  width: width;
+  height: height;
+  padding: 2px;
+  border: solid 1px border;
+  border-radius: border-radius;
+}
+
+.toggle__box_on {
+  composes: toggle__box;
+  background-color: box-on;
+}
+
+.toggle__box_off {
+  composes: toggle__box;
+  background-color: box-off;
+}
+
+.toggle__switch {
+  width: 50px;
+  height: 50px;
+  background-color: switch;
+  border-radius: border-radius;
+  transition: all 0.2s ease;
+}
+
+.toggle__switch_off {
+  composes: toggle__switch;
+}
+
+.toggle__switch_on {
+  composes: toggle__switch;
+  transform: translateX(50px);
+}
+
+.toggle__switch_off:active {
+  padding-right: 1.2em;
+}
+
+.toggle__switch_on:active {
+  padding-left: 1.2em;
+  margin-left: -1.2em;
+}
+
+.toggle__input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
