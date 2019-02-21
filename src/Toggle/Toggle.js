@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import styles from './Toggle.module.css';
+import { Component } from "react";
 
 class Toggle extends Component {
   static defaultProps = {
-    initialOn: false,
-  }
+    initialOn: false
+  };
 
   initialState = {
-    on: this.props.initialOn,
-  }
+    on: this.props.initialOn
+  };
 
   constructor(props) {
     super(props);
@@ -18,20 +17,16 @@ class Toggle extends Component {
 
   reset = () => this.setState(this.initialState);
 
-  toggle = () => this.setState({ on: !this.state.on })
+  toggle = () => this.setState({ on: !this.state.on });
+
+  getStateAndHelpers = () => ({
+    ...this.state,
+    toggle: this.toggle,
+    reset: this.reset,
+  });
 
   render() {
-    const { on } = this.state;
-
-    return (
-      <div className={styles.toggle} onClick={this.toggle}>
-        <div className={on ? styles.toggle__box_on : styles.toggle__box_off}>
-        <div className={
-          on ? styles.toggle__switch_on : styles.toggle__switch_off
-        } />
-        </div>
-      </div>
-    );
+    return this.props.children(this.getStateAndHelpers());
   }
 }
 
